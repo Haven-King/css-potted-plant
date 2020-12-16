@@ -40,10 +40,15 @@ public class CPP implements ModInitializer {
                 Position position = DispenserBlock.getOutputLocation(pointer);
                 Direction direction = pointer.getBlockState().get(DispenserBlock.FACING);
                 Direction facing = direction.getAxis() == Direction.Axis.Y ? Direction.NORTH : direction;
-                FallingBlockEntity plant = new FallingBlockEntity(world, position.getX(), position.getY(), position.getZ(), PLANT_BLOCK.getDefaultState().with(Properties.HORIZONTAL_FACING, direction));
+                FallingBlockEntity plant = new FallingBlockEntity(world, position.getX(), position.getY(), position.getZ(), PLANT_BLOCK.getDefaultState().with(Properties.HORIZONTAL_FACING, facing));
                 PLANT_BLOCK.configureFallingBlockEntity(plant);
-                Vec3d velocity = Vec3d.of(facing.getVector());
+                Vec3d velocity = Vec3d.of(direction.getVector());
                 plant.setVelocity(velocity.multiply(0.1));
+
+                if (direction == Direction.UP) {
+                    plant.addVelocity(0, 1.5, 0);
+                }
+
                 world.spawnEntity(plant);
                 stack.decrement(1);
                 return stack;
