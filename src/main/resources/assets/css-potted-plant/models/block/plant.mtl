@@ -1,0 +1,35 @@
+# Blender MTL File: 'Plant.blend'
+# Material Count: 2
+
+newmtl sprite
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.869452 0.519848 0.560050
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd css-potted-plant:block/plant01
+
+newmtl pot
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.869452 0.519848 0.560050
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd css-potted-plant:block/plant01
+
+newmtl leaves
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.786668 0.602415 0.895321
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd css-potted-plant:block/plant02

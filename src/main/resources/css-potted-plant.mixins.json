@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.hephaestus.csspottedplant.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinEntity",
+    "MixinFallingBlockEntity",
+    "MixinMobEntity"
+  ],
+  "client": [
+    "client.MixinHeadFeatureRenderer"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

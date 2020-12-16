@@ -1,0 +1,12 @@
+{
+  "pottery_break": {
+    "category": "block",
+    "subtitle": "sounds.css-potted-plant.subtitle",
+    "sounds": [
+      "css-potted-plant:block/glass_pottery_break1",
+      "css-potted-plant:block/glass_pottery_break2",
+      "css-potted-plant:block/glass_pottery_break3",
+      "css-potted-plant:block/glass_pottery_break4"
+    ]
+  }
+}
