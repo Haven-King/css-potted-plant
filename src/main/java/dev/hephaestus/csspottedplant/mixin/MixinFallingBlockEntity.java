@@ -22,6 +22,8 @@ public abstract class MixinFallingBlockEntity extends Entity implements FallingP
 
     @Shadow public abstract BlockState getBlockState();
 
+    @Shadow private BlockState block;
+
     public MixinFallingBlockEntity(EntityType<?> type, World world) {
         super(type, world);
     }
@@ -35,11 +37,16 @@ public abstract class MixinFallingBlockEntity extends Entity implements FallingP
     @SuppressWarnings("ConstantConditions")
     @Inject(method = "tick", at = @At("TAIL"))
     private void destroyOnHorizontalCollision(CallbackInfo ci) {
-        if (!this.world.isClient && this.horizontalCollision && this.destroyedOnLanding && (Object) this instanceof FallingBlockEntity && ((FallingBlockEntity) (Object) this).getBlockState().isOf(CPP.PLANT_BLOCK)) {
+
+        if (this.block.isOf(CPP.PLANT_BLOCK)) {
+            this.destroyedOnLanding = true;
+
+            if (!this.world.isClient && this.horizontalCollision) {
                 FallingBlock block = (FallingBlock) this.getBlockState().getBlock();
 
                 block.onDestroyedOnLanding(this.world, this.getBlockPos(), (FallingBlockEntity) (Object) this);
                 this.remove();
+            }
         }
     }
 }
